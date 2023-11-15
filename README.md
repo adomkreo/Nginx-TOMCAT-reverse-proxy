@@ -3,20 +3,22 @@
 step 1 installing nginx
 sudo apt update
 sudo apt upgrade
-sudo apt install nginx
+sudo apt install nginx-core
 nginx -v
 cd /var/www/html/
 sudo cp index.nginx-debian.html index.nginx-debian.html.0
+####### dont use the below###
 sudo systemctl enable nginx
 sudo ufw allow 'Nginx full'
 sudo ufw allow 'Nginx HTTP' 
 sudo ufw allow 'Nginx HTTPS' 
 sudo ufw enable 
 sudo ufw status
+########ends here######
 sudo mv /etc/nginx/nginx.conf /etc/nginx/nginx.conf.bkp 
 sudo vi /etc/nginx/nginx.conf 
 
-to add define the reverse proxy rules
+to add define the reverse proxy rules (add tomcat priviate ip)
 
 events{
 worker_connections 1024;
